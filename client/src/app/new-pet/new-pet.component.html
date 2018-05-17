@@ -1,0 +1,52 @@
+<div class="row">
+  <h4>Know of a pet need a home?</h4>
+</div>
+
+<form (submit)=newPetForm() method="POST">
+    <div *ngIf="errorL"class="row">
+        <p *ngIf="errorL.errors.name"class="red">{{errorL.errors.name.message}}</p>
+    </div>
+  <div *ngIf="newPet.name" class="row">
+      <p *ngIf="newPet.name.length < 3" class="red">A Pets name must be 3 characters longer.</p>
+  </div>
+  <div class="row">
+    <p>Pet Name: <input type="text" name="newPet.name" [(ngModel)]="newPet.name"></p>
+  </div>
+  <div *ngIf="errorL"class="row">
+      <p *ngIf="errorL.errors.type"class="red">{{errorL.errors.type.message}}</p>
+  </div>
+  <div *ngIf="newPet.type" class="row">
+      <p *ngIf="newPet.type.length < 3" class="red">A Pets type must be 3 characters longer.</p>
+  </div>
+  <div class="row">
+    <p>Pet Type: <input type="text" name="newPet.type" [(ngModel)]="newPet.type"></p>
+  </div>
+  <div *ngIf="errorL"class="row">
+      <p *ngIf="errorL.errors.description" class="red">{{errorL.errors.description.message}}</p>
+  </div>
+  <div *ngIf="newPet.description" class="row">
+      <p *ngIf="newPet.description.length < 3" class="red">A Pets description must be 3 characters longer.</p>
+  </div>
+  <div class="row">
+    <p>Description: <input type="text" name="newPet.description" [(ngModel)]="newPet.description"></p>
+  </div>
+  <div class="row">
+    <div class="p">Skills:</div>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <p>Skill 1: <input type="text" name="newPet.skill1" [(ngModel)]="newPet.skill1"></p>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <p>Skill 2: <input type="text" name="newPet.skill2" [(ngModel)]="newPet.skill2"></p>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <p>Skill 3: <input type="text" name="newPet.skill3" [(ngModel)]="newPet.skill3"></p>
+  </div>
+  <div class="row">
+    <div class="col-2"><input type="submit" value="Add Pet"></div>
+    <div class="col-2"><button [routerLink]="['/']">Cancel</button></div>    
+  </div>
+</form>
